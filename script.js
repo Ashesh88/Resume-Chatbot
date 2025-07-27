@@ -3,7 +3,7 @@
     document.addEventListener('DOMContentLoaded', function () {
         lucide.createIcons();
 
-        // --- Application State ---
+      
         let messages = [
             {
                 id: 1,
@@ -19,13 +19,13 @@
         let currentBotMessageWords = [];
         let currentBotMessageIndex = 0;
 
-        // --- DOM Elements ---
+      
         const messagesContainer = document.getElementById('messages-container');
         const messageInput = document.getElementById('message-input');
         const sendButton = document.getElementById('send-button');
         const suggestionButtons = document.querySelectorAll('.suggestion-btn');
 
-        // --- Resume Data (Static) ---
+        
         const resumeData = {
             name: "Ashesh Singh",
             title: "B.Tech Final Year CSE Student (Data Science)",
@@ -77,7 +77,7 @@
             ]
         };
 
-        // --- Bot Responses ---
+        
         const botResponses = {
             greeting: "Hello! I'm here to help you learn about Ashesh Singh's professional background. You can ask me about his work projects, education, skills, contact.",
             project: `Developed the RBS Furniture website for a local business, built a fully interactive Resume Chatbot, designed a personal Portfolio Website using HTML and Tailwind CSS, and created a Sales Dashboard with Power BI to visualize real-time business insights.`,
@@ -89,7 +89,7 @@
             default: "I didn’t get that. Try asking about Ashesh's skills, resume, or projects!"
         };
 
-        // --- Utility Functions ---
+       
         function formatTime(date) {
             return date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
         }
@@ -101,9 +101,8 @@
             targetElement.scrollIntoView({ behavior: "smooth", block: "end" });
         }
 
-        // --- Message Handling ---
-
-        // Function to get bot response based on user input
+       
+       
         function getBotResponse(userMessage) {
             const message = userMessage.toLowerCase();
             if (message.includes('hello') || message.includes('hi') || message.includes('hey')) {
@@ -115,7 +114,7 @@
             } else if (message.includes('skill') || message.includes('tech')) {
                 return botResponses.skills;
             }
-            // Improved check for certificate using the correct data key and keywords
+         
             else if (message.includes('certificate') || message.includes('certificate') || message.includes('award')) {
                 return botResponses.certificate; // Return the correctly formatted certificate response
             } else if (message.includes('contact') || message.includes('email') || message.includes('phone') || message.includes('links') || message.includes('linkedin') || message.includes('github')) {
@@ -127,9 +126,9 @@
         }
 
 
-        // --- Word-by-Word Typing Functions ---
+     
 
-        // Starts the word-by-word typing animation for a bot message
+      
         function startWordTypingAnimation(text) {
             // Clear any existing typing interval
             if (typingInterval) {
@@ -137,8 +136,7 @@
                 typingInterval = null;
             }
 
-            // Split the text into words (keeping line breaks)
-            // This handles newlines correctly for the certificate list
+         
             currentBotMessageWords = text.split(/(\n)/).filter(part => part !== '').flatMap(part => part === '\n' ? ['\n'] : part.split(' '));
             currentBotMessageIndex = 0;
 
@@ -163,10 +161,10 @@
             lucide.createIcons();
             scrollToBottom();
 
-            // Set up typing element
+         
             currentBotMessageElement = document.getElementById('typing-text');
 
-            // Start typing interval
+           
             typingInterval = setInterval(() => {
                 if (currentBotMessageIndex < currentBotMessageWords.length) {
                     const word = currentBotMessageWords[currentBotMessageIndex];
@@ -190,18 +188,17 @@
                     if (container) {
                          container.removeAttribute('id');
                     }
-                    // Re-initialize icons in case any were added via links
+                   
                     lucide.createIcons();
                 }
             }, 70); // Adjust typing speed here (milliseconds per word part)
         }
 
-        // Renders user messages and the initial bot message (not typed)
+       
         function renderMessages() {
             messagesContainer.innerHTML = ''; // Clear existing messages
             messages.forEach(message => {
-                // Only render non-bot messages or the initial bot message here
-                // Bot messages being typed will be handled by startWordTypingAnimation
+              
                 if (!message.isBot || message.id === 1) {
                     const messageDiv = document.createElement('div');
                     messageDiv.className = `flex ${message.isBot ? 'justify-start' : 'justify-end'}`;
@@ -227,12 +224,12 @@
                 }
             });
 
-            // Re-initialize icons for newly added messages
+           
             lucide.createIcons();
             scrollToBottom();
         }
 
-        // Adds a message to the state and renders it (user) or starts typing (bot)
+      
         function addMessage(text, isBot) {
             const newMessage = {
                 id: Date.now() + Math.random(), // Simple ID generation
@@ -283,7 +280,7 @@
             }
         }
 
-        // --- Event Handlers ---
+       
         function handleSendMessage() {
             const message = messageInput.value.trim();
             if (!message) return;
@@ -294,7 +291,6 @@
 
             showTypingIndicator();
 
-            // Simulate bot response delay
             setTimeout(() => {
                 hideTypingIndicator();
                 const botResponse = getBotResponse(message);
@@ -309,10 +305,10 @@
             sendButton.disabled = false;
         }
 
-        // --- Initialize ---
+      
         renderMessages(); // Render initial messages
 
-        // --- Event Listeners ---
+        
         sendButton.addEventListener('click', handleSendMessage);
 
         messageInput.addEventListener('input', () => {
@@ -330,7 +326,7 @@
             button.addEventListener('click', handleSuggestionClick);
         });
 
-        // Initial scroll to bottom
+      
         scrollToBottom();
     });
 })();
