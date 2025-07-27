@@ -22,7 +22,6 @@ This interactive chatbot lets visitors explore my resume through a clean and con
 - **HTML5**
 - **Tailwind CSS**
 - **JavaScript**
-- **Lucide Icons**
 
 ---
 
