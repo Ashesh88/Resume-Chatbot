@@ -107,7 +107,7 @@
             const message = userMessage.toLowerCase();
             if (message.includes('hello') || message.includes('hi') || message.includes('hey')) {
                 return botResponses.greeting;
-            } else if (message.includes('projects') || message.includes('work') || message.includes('project')) {
+            } else if (message.includes('experience') || message.includes('work') || message.includes('project')) {
                 return botResponses.project;
             } else if (message.includes('education') || message.includes('study') || message.includes('school')) {
                 return botResponses.education;
