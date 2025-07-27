@@ -28,7 +28,7 @@ This interactive chatbot lets visitors explore my resume through a clean and con
 
 ##  Screenshot
 
-![Ashesh Resume Chatbot](image/Resume_chatbot.png)
+![Ashesh Resume Chatbot](/image/Resume_chatbot_ss.png)
 
 ---
 
