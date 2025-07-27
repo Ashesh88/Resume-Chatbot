@@ -1,5 +1,3 @@
-/* Tailwind Config (if needed via CDN config) */
-/* The bounce animation is usually included by default, but we define it explicitly */
 @keyframes bounce {
     0%, 100% {
         transform: translateY(0);
@@ -9,40 +7,10 @@
     }
 }
 
-/* Ensure the bounce animation is available */
 .animate-bounce {
     animation: bounce 1s infinite;
 }
 
-/* Additional custom styles if needed beyond Tailwind */
-/* For example, ensuring icons align properly within their containers */
-.lucide {
-    display: inline-block;
-    stroke-width: 2;
-    stroke: currentColor;
-    fill: none;
-    stroke-linecap: round;
-    stroke-linejoin: round;
-}
-
-/* style.css */
-/* The bounce animation is usually included by default, but we define it explicitly */
-@keyframes bounce {
-    0%, 100% {
-        transform: translateY(0);
-    }
-    50% {
-        transform: translateY(-25%);
-    }
-}
-
-/* Ensure the bounce animation is available */
-.animate-bounce {
-    animation: bounce 1s infinite;
-}
-
-/* Additional custom styles if needed beyond Tailwind */
-/* For example, ensuring icons align properly within their containers */
 .lucide {
     display: inline-block;
     stroke-width: 2;
