@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ashesh's Resume Chatbot</title>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Custom Styles (will be in the CSS section) -->
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body class="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50">
+    <!-- Header -->
+    <div class="bg-white shadow-sm border-b">
+        <div class="max-w-4xl mx-auto px-4 py-4">
+            <div class="flex items-center space-x-3">
+                <div class="w-12 h-12 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full flex items-center justify-center">
+                    <i data-lucide="file-text" class="w-6 h-6 text-white"></i>
+                </div>
+                <div>
+                    <h1 class="text-2xl font-bold text-gray-900">Ashesh's Resume ChatBot</h1>
+                    <p class="text-gray-600">Ask me about Ashesh Singh's professional background</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="max-w-4xl mx-auto px-4 py-6">
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+            <!-- Resume Preview -->
+            <div class="lg:col-span-1">
+                <div class="bg-white rounded-xl shadow-lg p-6 sticky top-6">
+                    <div class="text-center mb-6">
+                        <div class="w-24 h-24 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full mx-auto mb-4 flex items-center justify-center">
+                            <i data-lucide="user" class="w-12 h-12 text-white"></i>
+                        </div>
+                        <h2 class="text-xl font-bold text-gray-900" id="resume-name">Ashesh Singh</h2>
+                        <p class="text-blue-600 font-medium" id="resume-title">B.Tech CSE (Data Science), Final Year</p>
+                    </div>
+                    <div class="space-y-4">
+                        <div class="flex items-center space-x-3 text-gray-600">
+                            <i data-lucide="mail" class="w-4 h-4"></i>
+                            <span class="text-sm" id="resume-email">asheshsingh@gmail.com</span>
+                        </div>
+
+                        <div class="flex items-center space-x-3 text-gray-600">
+                             <i data-lucide="school" class="w-4 h-4"></i>
+                             <span class="text-sm" id="resume-college">Galgotias College of Engineering and Technology</span>
+                        </div>
+
+                        
+                        <div class="flex items-center space-x-3 text-gray-600">
+                            <i data-lucide="map-pin" class="w-4 h-4"></i>
+                            <span class="text-sm" id="resume-location">Noida, Uttar Pradesh</span>
+                        </div>
+                    </div>
+                    <div class="mt-6 pt-6 border-t">
+                        <h3 class="font-semibold text-gray-900 mb-3">Quick Facts</h3>
+                        <div class="space-y-2 text-sm text-gray-600">
+                            <div class="flex items-center space-x-2">
+                                <i data-lucide="briefcase" class="w-4 h-4 text-blue-500"></i>
+                                <span id="quick-fact-1">Experience in Full-Stack Web Development Projects</span>
+                            </div>
+                            <div class="flex items-center space-x-2">
+                                <i data-lucide="graduation-cap" class="w-4 h-4 text-green-500"></i>
+                                <span id="quick-fact-2">Pursuing B.Tech (Data Science), Final Year</span>
+                            </div>
+                            <div class="flex items-center space-x-2">
+                                <i data-lucide="award" class="w-4 h-4 text-purple-500"></i>
+                                <span id="quick-fact-3">Google Data Analytics Certification via Coursera</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Chat Interface -->
+            <div class="lg:col-span-2">
+                <div class="bg-white rounded-xl shadow-lg flex flex-col h-[600px]">
+                    <!-- Chat Header -->
+                    <div class="px-6 py-4 border-b bg-gradient-to-r from-blue-500 to-purple-600 rounded-t-xl">
+                        <div class="flex items-center space-x-3">
+                            <div class="w-8 h-8 bg-white rounded-full flex items-center justify-center">
+                                <i data-lucide="bot" class="w-5 h-5 text-blue-600"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-white font-semibold">Resume Assistant</h3>
+                                <p class="text-blue-100 text-sm">Online now</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Messages Container -->
+                    <div id="messages-container" class="flex-1 overflow-y-auto p-6 space-y-4">
+                        <!-- Initial bot message will be inserted here by JS -->
+                    </div>
+
+                    <!-- Input Area -->
+                    <div class="p-4 border-t">
+                        <div class="flex items-end space-x-2">
+                            <div class="flex-1">
+                                <textarea
+                                    id="message-input"
+                                    placeholder="Ask about experience, skills, education..."
+                                    class="w-full resize-none border border-gray-300 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                                    rows="2"
+                                ></textarea>
+                            </div>
+                            <button
+                                id="send-button"
+                                class="bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-xl p-3 hover:from-blue-600 hover:to-purple-700 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200"
+                                disabled
+                            >
+                                <i data-lucide="send" class="w-5 h-5"></i>
+                            </button>
+                        </div>
+                        <div class="flex flex-wrap gap-2 mt-2">
+                            <button class="text-xs bg-gray-100 hover:bg-gray-200 text-gray-700 px-3 py-1 rounded-full transition-colors duration-200 suggestion-btn" data-text="Tell me about your Projects">project</button>
+                            <button class="text-xs bg-gray-100 hover:bg-gray-200 text-gray-700 px-3 py-1 rounded-full transition-colors duration-200 suggestion-btn" data-text="Tell me about your skills">Skills</button>
+                            <button class="text-xs bg-gray-100 hover:bg-gray-200 text-gray-700 px-3 py-1 rounded-full transition-colors duration-200 suggestion-btn" data-text="Tell me about your certificate">certificate</button>
+                            <button class="text-xs bg-gray-100 hover:bg-gray-200 text-gray-700 px-3 py-1 rounded-full transition-colors duration-200 suggestion-btn" data-text="Tell me about your education">Education</button>
+                            <button class="text-xs bg-gray-100 hover:bg-gray-200 text-gray-700 px-3 py-1 rounded-full transition-colors duration-200 suggestion-btn" data-text="How can I contact you?">Contact</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+   <script src="script.js"></script>
+</body>
+</html>
